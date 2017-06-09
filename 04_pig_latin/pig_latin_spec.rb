@@ -67,6 +67,30 @@ describe "#translate" do
 
   # Test-driving bonus:
   # * write a test asserting that capitalized words are still capitalized (but with a different initial capital letter, of course)
+  it "capitalized words are still capitalized" do
+    s = translate("Hooray")
+    expect(s).to eq("Oorayhay")
+  end
+
+  it "capitalized words within phrase are still capitalized" do
+    s = translate("going to Disneyland")
+    expect(s).to eq("oinggay otay Isneylandday")
+  end
+
   # * retain the punctuation from the original phrase
+  it "retains punctation" do
+    s = translate("super!")
+    expect(s).to eq("upersay!")
+  end
+
+  it "retains capitalization and punctuation" do
+    s = translate("Yeah!") 
+    expect(s).to eq("Eahyay!")
+  end
+
+  it "retains mulitple punctuation marks and capitalizations in many word phrase" do
+    s = translate("Are we going to Disneyland, mom?")
+    expect(s).to eq("Areay eway oinggay otay Isneylandday, ommay?")
+  end
 
 end
